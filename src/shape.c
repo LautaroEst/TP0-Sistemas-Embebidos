@@ -38,5 +38,19 @@ float shape_distance_from(shape_t *me, shape_t *shape){
 }
 
 bool shape_plot(shape_t *me, image_t *image){
-	// Completar
+	
+	nPoints = me->array.n_array;
+	dx = me->position.x;
+	dy = me->position.y;
+
+	//Recorro el verctor coordinates
+	for(uint32_t k = 0; i<nPoints; i++){
+		i = me->array.coordinates.x;
+		j = me->array.coordinates.y;
+		image_write(image, i, j, HIGH);
+	}
+	printf ("Ingresar el nombre de la imagen requerida.");
+	scanf("%s",filename);
+	image_to_file(image, filename);
+
 }
