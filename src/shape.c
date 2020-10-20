@@ -1,7 +1,7 @@
 
 #include "shape.h"
 #include "image.h"
-
+#include "math.h"
 
 bool shape_ctor(shape_t *me, coordinates_array_t *array, uint32_t position_x, uint32_t position_y){
 	
@@ -31,12 +31,10 @@ bool shape_move(shape_t *me, uint32_t dx, uint32_t dy){
 	me->position.y = me->position.y + dy;
 }
 
-bool shape_rotate(shape_t *me, float angle){
-	// Completar
-}
-
 float shape_distance_from(shape_t *me, shape_t *shape){
-	// Completar
+	dx = me->position.x - shape->position.x;
+	dy = me->position.y - shape->position.y;
+	return sqrt(pow(dx,2)+pow(dy,2));
 }
 
 bool shape_plot(shape_t *me, image_t *image){
