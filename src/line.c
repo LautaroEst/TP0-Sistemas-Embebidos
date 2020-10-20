@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <math.h>
 
-float lerp(uint32_t a, uint32_t b, float t){
+float static_lerp(uint32_t a, uint32_t b, float t){
 	if(a==b){
 		return a;
 	}
@@ -37,8 +37,8 @@ bool line_ctor(line_t *me, uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2){
 	me->super.array.n_array = nPoints;
 
 	for(uint32_t i = 0; i<nPoints; i++){
-		me->super.array.coordinates[i].x = (int)round (lerp(x1,x2,i*step));
-		me->super.array.coordinates[i].y = (int)round (lerp(y1,y2,i*step));
+		me->super.array.coordinates[i].x = (int)round (static_lerp(x1,x2,i*step));
+		me->super.array.coordinates[i].y = (int)round (static_lerp(y1,y2,i*step));
 	}
 	return true;
 }

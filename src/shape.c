@@ -4,11 +4,25 @@
 
 
 bool shape_ctor(shape_t *me, coordinates_array_t *array, uint32_t position_x, uint32_t position_y){
-	// Completar
+	  
+	nPoints = array->n_array;
+
+	if (!(me->array.coordinates = (coordinate_t*)malloc(sizeof(coordinate_t)*nPoints))){
+		return false
+	}
+	
+	//Ubicación de la figura
+	me->position.x = position_x;
+	me->position.y = position_y;
+
+	//Copio la forma
+	me->array = &array;
+
+	return true;
 }
 
 void shape_dtor(shape_t *me){
-	// Completar
+		  
 }
 
 bool shape_move(shape_t *me, uint32_t dx, uint32_t dy){
