@@ -4,7 +4,7 @@ SRC = $(wildcard src/*)
 OBJECTS = $(foreach file, $(SRC), out/$(basename $(notdir $(file))).o) #defino object, a partir de la carpeta SRC, todos los .c
 
 CC = gcc
-CFLAGS = -Wall -std=c99 -Iinc
+CFLAGS = -Wall -std=c99 -Iinc #-Iinc: incorpora los .h, 
 
 all: out $(OBJECTS)  #;Targets: "...:", particularmente "all:" es "compila todo"
 	@echo Building...
