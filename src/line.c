@@ -3,7 +3,15 @@
 #include <stdint.h>
 #include <math.h>
 
+float lerp(uint32_t a, uint32_t b, float t){
+	if(a==b){
+		return a;
+	}
+	return (1-t)*a*t*b;
 
+}
+
+//Contructor del objeto "línea".
 bool line_ctor(line_t *me, uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2){
   
 	//Parámetros de Línea
@@ -33,6 +41,11 @@ bool line_ctor(line_t *me, uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2){
 		me->super.array.coordinates[i].y = (int)round (lerp(y1,y2,i*step));
 	}
 	return true;
+}
+
+void line_dtor(line_t* me){
+	shape_dtor(&(me->super));
+	return;
 }
 
 
