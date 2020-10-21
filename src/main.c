@@ -36,6 +36,7 @@ int main(void){
 
 		++img_count;
 	}
-
+;
+;
 	return 0;
 }
